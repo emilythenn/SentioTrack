@@ -1,1 +1,1151 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/index.dart';
+import 'package:flip_card/flip_card.dart';
+import 'package:expandable/expandable.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'dashboard_model.dart';
+export 'dashboard_model.dart';
+
+class DashboardWidget extends StatefulWidget {
+  const DashboardWidget({super.key});
+
+  static String routeName = 'Dashboard';
+  static String routePath = '/dashboard';
+
+  @override
+  State<DashboardWidget> createState() => _DashboardWidgetState();
+}
+
+class _DashboardWidgetState extends State<DashboardWidget> {
+  late DashboardModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => DashboardModel());
+
+    _model.expandableExpandableController =
+        ExpandableController(initialExpanded: false);
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        drawer: Drawer(
+          elevation: 16,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                width: 311.9,
+                height: 201.01,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                      child: Icon(
+                        Icons.person,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 100,
+                      ),
+                    ),
+                    Text(
+                      'Username',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: 324.83,
+                height: 722.2,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).accent4,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Divider(
+                      thickness: 2,
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(30, 5, 50, 0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed(DashboardWidget.routeName);
+                            },
+                            child: Text(
+                              'Home Dashboard',
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 20,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 30),
+                          child: FlutterFlowIconButton(
+                            borderRadius: 8,
+                            buttonSize: 0,
+                            fillColor: Color(0x00D3CFEC),
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                              color: Color(0xFFEE6363),
+                              size: 20,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      thickness: 2,
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ),
+                    Container(
+                      width: 244.6,
+                      height: 91.01,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              width: double.infinity,
+                              height: 200,
+                              color: Color(0x00000000),
+                              child: ExpandableNotifier(
+                                controller:
+                                    _model.expandableExpandableController,
+                                child: ExpandablePanel(
+                                  header: Text(
+                                    'Mood & Well-being',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Inter Tight',
+                                          color: Colors.black,
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  collapsed: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        'AI analyzes mood + environment + health',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Inter',
+                                              color: Color(0x8A000000),
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                  expanded: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context
+                                              .pushNamed(MoodWidget.routeName);
+                                        },
+                                        child: Text(
+                                          'Daily Quiz',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color: Color(0x8A000000),
+                                                fontSize: 18,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            20, 7, 0, 0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                                SuggestionWidget.routeName);
+                                          },
+                                          child: Text(
+                                            'Suggestions',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: Color(0x8A000000),
+                                                  fontSize: 18,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: false,
+                                    tapBodyToCollapse: false,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: true,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(
+                      thickness: 2,
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 42, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(NotificationsWidget.routeName);
+                        },
+                        child: Text(
+                          'Notifications & Alerts',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 20,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      thickness: 2,
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 87, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(SocialAndSupportWidget.routeName);
+                        },
+                        child: Text(
+                          'Social & Support',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 20,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      thickness: 2,
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 170, 0),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(HealthReportWidget.routeName);
+                        },
+                        child: Text(
+                          'Reports',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 20,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      thickness: 2,
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 81, 2),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          context.pushNamed(ProfileandsettingsWidget.routeName);
+                        },
+                        child: Text(
+                          'Profile & Settings',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Inter',
+                                    fontSize: 20,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      thickness: 2,
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          automaticallyImplyLeading: true,
+          leading: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+            child: FlutterFlowIconButton(
+              borderRadius: 8,
+              buttonSize: 40,
+              fillColor: Color(0x004B39EF),
+              icon: Icon(
+                Icons.list,
+                color: Color(0xFF8D8888),
+                size: 30,
+              ),
+              onPressed: () async {
+                scaffoldKey.currentState!.openDrawer();
+              },
+            ),
+          ),
+          title: Text(
+            'SentioTrack',
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Inter',
+                  fontSize: 20,
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.bold,
+                ),
+          ),
+          actions: [
+            Align(
+              alignment: AlignmentDirectional(0, 0),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: Image.asset(
+                    'assets/images/Logo_SentioTrack.jpeg',
+                    width: 72.29,
+                    height: 200,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+          ],
+          centerTitle: true,
+          elevation: 0,
+        ),
+        body: SafeArea(
+          top: true,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  width: 422,
+                  height: 1258.89,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFE0E3E7),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(16, 16, 16, 16),
+                            child: Container(
+                              width: 374.4,
+                              height: 1368.68,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFE0E3E7),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: 366.5,
+                                    height: 668.67,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(90, 5, 90, 0),
+                                                  child: Text(
+                                                    'Health Monitoring',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          fontSize: 20,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w900,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(0, 0, 155, 5),
+                                                  child: Text(
+                                                    'Heart Rate variability',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          fontSize: 16,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FontStyle.italic,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        FlipCard(
+                                          fill: Fill.fillBack,
+                                          direction: FlipDirection.HORIZONTAL,
+                                          speed: 400,
+                                          front: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 0, 10, 0),
+                                            child: Container(
+                                              width: 346,
+                                              height: 178,
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFFEBEAF4),
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                                child: Image.asset(
+                                                  'assets/images/w780.png',
+                                                  width: 200,
+                                                  height: 200,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          back: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10, 0, 10, 0),
+                                            child: Container(
+                                              width: 346,
+                                              height: 178,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                                border: Border.all(
+                                                  color: Color(0xFF0D0101),
+                                                ),
+                                              ),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                                child: Image.asset(
+                                                  'assets/images/2+unnamed+(1).jpg',
+                                                  width: 200,
+                                                  height: 200,
+                                                  fit: BoxFit.fitWidth,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 10, 200, 5),
+                                          child: Text(
+                                            'Sleep Patterns',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 16,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle: FontStyle.italic,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 0, 10, 0),
+                                          child: FlipCard(
+                                            fill: Fill.fillBack,
+                                            direction: FlipDirection.HORIZONTAL,
+                                            speed: 400,
+                                            front: Container(
+                                              width: 346,
+                                              height: 178,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                                child: Image.asset(
+                                                  'assets/images/Drupal-TheWell_REM_sleep_AS_475161846.jpg',
+                                                  width: 200,
+                                                  height: 200,
+                                                  fit: BoxFit.cover,
+                                                  alignment: Alignment(0, 0),
+                                                ),
+                                              ),
+                                            ),
+                                            back: Container(
+                                              width: 346,
+                                              height: 178,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                                child: Image.asset(
+                                                  'assets/images/sleep-cycle-graph-normal.jpg',
+                                                  width: 200,
+                                                  height: 200,
+                                                  fit: BoxFit.fill,
+                                                  alignment: Alignment(0, 0),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 7, 185, 5),
+                                          child: Text(
+                                            'Physical Activity',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  fontSize: 16,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle: FontStyle.italic,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10, 0, 10, 0),
+                                          child: FlipCard(
+                                            fill: Fill.fillBack,
+                                            direction: FlipDirection.HORIZONTAL,
+                                            speed: 400,
+                                            front: Container(
+                                              width: 346,
+                                              height: 178,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                              ),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(20),
+                                                child: Image.asset(
+                                                  'assets/images/C4AE8E3A-8039-4AA9-9079C9661BDEA166_source.webp',
+                                                  width: 200,
+                                                  height: 200,
+                                                  fit: BoxFit.cover,
+                                                  alignment: Alignment(0, -1),
+                                                ),
+                                              ),
+                                            ),
+                                            back: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5, 0, 5, 0),
+                                              child: Container(
+                                                width: 346,
+                                                height: 178,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  border: Border.all(
+                                                    color: Color(0xBA020000),
+                                                  ),
+                                                ),
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  child: Image.asset(
+                                                    'assets/images/_2025-03-20_233737.png',
+                                                    width: 200,
+                                                    height: 200,
+                                                    fit: BoxFit.fill,
+                                                    alignment: Alignment(0, 0),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 5, 0, 0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0, 16, 0, 16),
+                                          child: Container(
+                                            width: 364.8,
+                                            height: 673.11,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(50,
+                                                                      5, 50, 0),
+                                                          child: Text(
+                                                            'Environmental Monitoring',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  fontSize: 20,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w900,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0,
+                                                                      5,
+                                                                      200,
+                                                                      0),
+                                                          child: Text(
+                                                            'Track Lighting',
+                                                            textAlign:
+                                                                TextAlign.start,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  fontSize: 16,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle:
+                                                                      FontStyle
+                                                                          .italic,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        FlipCard(
+                                                          fill: Fill.fillBack,
+                                                          direction:
+                                                              FlipDirection
+                                                                  .HORIZONTAL,
+                                                          speed: 400,
+                                                          front: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        5,
+                                                                        10,
+                                                                        0),
+                                                            child: Container(
+                                                              width: 339.59,
+                                                              height: 178,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                gradient:
+                                                                    LinearGradient(
+                                                                  colors: [
+                                                                    Color(
+                                                                        0xFFF0E5E5),
+                                                                    Color(
+                                                                        0xFFF69C9C)
+                                                                  ],
+                                                                  stops: [0, 1],
+                                                                  begin:
+                                                                      AlignmentDirectional(
+                                                                          0,
+                                                                          -1),
+                                                                  end:
+                                                                      AlignmentDirectional(
+                                                                          0, 1),
+                                                                ),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20),
+                                                                shape: BoxShape
+                                                                    .rectangle,
+                                                              ),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20),
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/lightingfront.webp',
+                                                                  width: 333.5,
+                                                                  height: 200,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          back: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        5,
+                                                                        10,
+                                                                        0),
+                                                            child: Container(
+                                                              width: 346,
+                                                              height: 178,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFFDFDFD),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: Colors
+                                                                      .black,
+                                                                ),
+                                                              ),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20),
+                                                                child:
+                                                                    SvgPicture
+                                                                        .asset(
+                                                                  'assets/images/lighting.svg',
+                                                                  width: 200,
+                                                                  height: 200,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0,
+                                                                      15,
+                                                                      210,
+                                                                      0),
+                                                          child: Text(
+                                                            'Noise Levels',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  fontSize: 16,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle:
+                                                                      FontStyle
+                                                                          .italic,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        FlipCard(
+                                                          fill: Fill.fillBack,
+                                                          direction:
+                                                              FlipDirection
+                                                                  .HORIZONTAL,
+                                                          speed: 400,
+                                                          front: Container(
+                                                            width: 341.77,
+                                                            height: 178,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondaryBackground,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          20),
+                                                            ),
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          20),
+                                                              child:
+                                                                  Image.asset(
+                                                                'assets/images/noise.jpeg',
+                                                                width: 346,
+                                                                height: 178,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          back: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0,
+                                                                        15,
+                                                                        0,
+                                                                        0),
+                                                            child: Container(
+                                                              width: 346,
+                                                              height: 178,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFFCFCFF),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: Colors
+                                                                      .black,
+                                                                ),
+                                                              ),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20),
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/noiselevels.jpg',
+                                                                  width: 200,
+                                                                  height: 200,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0,
+                                                                      15,
+                                                                      220,
+                                                                      0),
+                                                          child: Text(
+                                                            'Air Quality',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  fontSize: 16,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontStyle:
+                                                                      FontStyle
+                                                                          .italic,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        FlipCard(
+                                                          fill: Fill.fillBack,
+                                                          direction:
+                                                              FlipDirection
+                                                                  .HORIZONTAL,
+                                                          speed: 400,
+                                                          front: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        2,
+                                                                        10,
+                                                                        0),
+                                                            child: Container(
+                                                              width: 338.41,
+                                                              height: 178,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20),
+                                                              ),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20),
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/air-quality_front.jpg',
+                                                                  width: 200,
+                                                                  height: 200,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          back: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10,
+                                                                        15,
+                                                                        10,
+                                                                        0),
+                                                            child: Container(
+                                                              width: 346,
+                                                              height: 178,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20),
+                                                                border:
+                                                                    Border.all(
+                                                                  color: Colors
+                                                                      .black,
+                                                                ),
+                                                              ),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            20),
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/air-quality.webp',
+                                                                  width: 200,
+                                                                  height: 200,
+                                                                  fit: BoxFit
+                                                                      .fitHeight,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
