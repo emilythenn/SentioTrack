@@ -1,0 +1,174 @@
+import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'moodmap_model.dart';
+export 'moodmap_model.dart';
+
+class MoodmapWidget extends StatefulWidget {
+  const MoodmapWidget({super.key});
+
+  static String routeName = 'moodmap';
+  static String routePath = '/moodmap';
+
+  @override
+  State<MoodmapWidget> createState() => _MoodmapWidgetState();
+}
+
+class _MoodmapWidgetState extends State<MoodmapWidget> {
+  late MoodmapModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => MoodmapModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        resizeToAvoidBottomInset: false,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          automaticallyImplyLeading: false,
+          actions: [],
+          centerTitle: false,
+          elevation: 2,
+        ),
+        body: SafeArea(
+          top: true,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Container(
+                width: 453.52,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+                child: FlutterFlowDropDown<String>(
+                  controller: _model.dropDownValueController ??=
+                      FormFieldController<String>(
+                    _model.dropDownValue ??= '',
+                  ),
+                  options: List<String>.from(
+                      ['Option 1', 'Option 2', 'Option 3', '3', '4']),
+                  optionLabels: [
+                    FFLocalizations.of(context).getText(
+                      'liqtwwnk' /* Happy */,
+                    ),
+                    FFLocalizations.of(context).getText(
+                      'gtvl6kav' /* Sad */,
+                    ),
+                    FFLocalizations.of(context).getText(
+                      'd6zv1gbz' /* Angry */,
+                    ),
+                    FFLocalizations.of(context).getText(
+                      'szifm9dx' /* Calm */,
+                    ),
+                    FFLocalizations.of(context).getText(
+                      'p399oapx' /* Anxious */,
+                    )
+                  ],
+                  onChanged: (val) async {
+                    safeSetState(() => _model.dropDownValue = val);
+                    _model.moodType = _model.dropDownValue;
+                    safeSetState(() {});
+                  },
+                  width: 200,
+                  height: 40,
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
+                  hintText: valueOrDefault<String>(
+                    _model.moodType,
+                    'MoodType',
+                  ),
+                  icon: Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 24,
+                  ),
+                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                  elevation: 2,
+                  borderColor: Colors.transparent,
+                  borderWidth: 0,
+                  borderRadius: 8,
+                  margin: EdgeInsetsDirectional.fromSTEB(12, 0, 12, 0),
+                  hidesUnderline: true,
+                  isOverButton: false,
+                  isSearchable: false,
+                  isMultiSelect: false,
+                ),
+              ),
+              Container(
+                width: 497.7,
+                height: 855.56,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+                child: FlutterFlowGoogleMap(
+                  controller: _model.googleMapsController,
+                  onCameraIdle: (latLng) => _model.googleMapsCenter = latLng,
+                  initialLocation: _model.googleMapsCenter ??=
+                      LatLng(4.2105, 101.9758),
+                  markerColor: GoogleMarkerColor.violet,
+                  markerImage: MarkerImage(
+                    imagePath: 'assets/images/2vqf7_',
+                    isAssetImage: true,
+                    size: 20 ?? 20,
+                  ),
+                  mapType: MapType.normal,
+                  style: GoogleMapStyle.standard,
+                  initialZoom: 8,
+                  allowInteraction: true,
+                  allowZoom: true,
+                  showZoomControls: true,
+                  showLocation: true,
+                  showCompass: false,
+                  showMapToolbar: false,
+                  showTraffic: false,
+                  centerMapOnMarkerTap: true,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
