@@ -32,7 +32,9 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
     super.initState();
     _model = createModel(context, () => SocialAndSupportModel());
 
-    _model.expandableExpandableController =
+    _model.expandableExpandableController1 =
+        ExpandableController(initialExpanded: false);
+    _model.expandableExpandableController2 =
         ExpandableController(initialExpanded: false);
   }
 
@@ -60,7 +62,7 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
             children: [
               Container(
                 width: 311.9,
-                height: 201,
+                height: 201.01,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
@@ -76,10 +78,25 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                       ),
                     ),
                     Text(
-                      'Username',
+                      FFLocalizations.of(context).getText(
+                        'hzjkvgcz' /* Username */,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Inter',
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                           ),
                     ),
                   ],
@@ -109,19 +126,45 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed(DashboardWidget.routeName);
+                              context.pushNamed(DashboardCopyWidget.routeName);
                             },
                             child: Text(
-                              'Home Dashboard',
+                              FFLocalizations.of(context).getText(
+                                'sj6lnn2f' /* Home Dashboard */,
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 20,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 30),
+                          child: FlutterFlowIconButton(
+                            borderRadius: 8,
+                            buttonSize: 0,
+                            fillColor: Color(0x00D3CFEC),
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                              color: Color(0xFFEE6363),
+                              size: 20,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
                           ),
                         ),
                       ],
@@ -146,29 +189,67 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                               color: Color(0x00000000),
                               child: ExpandableNotifier(
                                 controller:
-                                    _model.expandableExpandableController,
+                                    _model.expandableExpandableController1,
                                 child: ExpandablePanel(
                                   header: Text(
-                                    'Mood & Well-being',
+                                    FFLocalizations.of(context).getText(
+                                      'qlmdwbao' /* Mood & Well-being */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          font: GoogleFonts.interTight(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLarge
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLarge
+                                                    .fontStyle,
+                                          ),
                                           color: Colors.black,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontStyle,
                                         ),
                                   ),
                                   collapsed: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Text(
-                                        'AI analyzes mood + environment + health',
+                                        FFLocalizations.of(context).getText(
+                                          'ta6brl49' /* AI analyzes mood + health */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               color: Color(0x8A000000),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ],
@@ -186,15 +267,28 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                               .pushNamed(MoodWidget.routeName);
                                         },
                                         child: Text(
-                                          'Daily Quiz',
+                                          FFLocalizations.of(context).getText(
+                                            'ibhclzxe' /* Daily Quiz */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 color: Color(0x8A000000),
                                                 fontSize: 18,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -208,18 +302,32 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
                                             context.pushNamed(
-                                                SuggestionWidget.routeName);
+                                                SuggestionsWidget.routeName);
                                           },
                                           child: Text(
-                                            'Suggestions',
+                                            FFLocalizations.of(context).getText(
+                                              '58b9ee7m' /* Suggestions */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  font: GoogleFonts.inter(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   color: Color(0x8A000000),
                                                   fontSize: 18,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -253,16 +361,26 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed(NotificationsWidget.routeName);
+                          context.pushNamed(NotificationWidget.routeName);
                         },
                         child: Text(
-                          'Notifications & Alerts',
+                          FFLocalizations.of(context).getText(
+                            '6e8qkm5q' /* Notifications & Alerts */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 20,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -271,75 +389,232 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                       thickness: 2,
                       color: FlutterFlowTheme.of(context).alternate,
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(30, 5, 57, 0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context
-                                  .pushNamed(SocialAndSupportWidget.routeName);
-                            },
-                            child: Text(
-                              'Social & Support',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    fontSize: 20,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 30),
-                          child: FlutterFlowIconButton(
-                            borderRadius: 8,
-                            buttonSize: 0,
-                            fillColor: Color(0x00D3CFEC),
-                            icon: Icon(
-                              Icons.arrow_back_ios,
-                              color: Color(0xFFEE6363),
-                              size: 20,
-                            ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      thickness: 2,
-                      color: FlutterFlowTheme.of(context).alternate,
-                    ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 170, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 87, 0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed(HealthReportWidget.routeName);
+                          context.pushNamed(SocialAndSupportWidget.routeName);
                         },
                         child: Text(
-                          'Reports',
+                          FFLocalizations.of(context).getText(
+                            '03t6bh6n' /* Social & Support */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 20,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
+                      ),
+                    ),
+                    Divider(
+                      thickness: 2,
+                      color: FlutterFlowTheme.of(context).alternate,
+                    ),
+                    Container(
+                      width: 244.6,
+                      height: 91,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Container(
+                              width: double.infinity,
+                              height: 200,
+                              color: Color(0x00000000),
+                              child: ExpandableNotifier(
+                                controller:
+                                    _model.expandableExpandableController2,
+                                child: ExpandablePanel(
+                                  header: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'wa3q11o3' /* Reports */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          font: GoogleFonts.interTight(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLarge
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLarge
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.black,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleLarge
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                  collapsed: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          '7s2ay66i' /* Export your reports */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              color: Color(0x8A000000),
+                                              letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                  expanded: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        15, 0, 0, 0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              MoodReportWidget.routeName,
+                                              queryParameters: {
+                                                'sliderValue': serializeParam(
+                                                  0.0,
+                                                  ParamType.double,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '9kiecsgj' /* Mood Report */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.inter(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  color: Color(0x8A000000),
+                                                  fontSize: 18,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  8, 7, 0, 0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed(
+                                                  HealthReportWidget.routeName);
+                                            },
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '328if56s' /* Health Report */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font: GoogleFonts.inter(
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
+                                                    color: Color(0x8A000000),
+                                                    fontSize: 18,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w600,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  theme: ExpandableThemeData(
+                                    tapHeaderToExpand: true,
+                                    tapBodyToExpand: false,
+                                    tapBodyToCollapse: false,
+                                    headerAlignment:
+                                        ExpandablePanelHeaderAlignment.center,
+                                    hasIcon: true,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Divider(
@@ -357,13 +632,23 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                           context.pushNamed(ProfileandsettingsWidget.routeName);
                         },
                         child: Text(
-                          'Profile & Settings',
+                          FFLocalizations.of(context).getText(
+                            '99jduqng' /* Profile & Settings */,
+                          ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 20,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -403,12 +688,21 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
             ],
           ),
           title: Text(
-            'Social & Support',
+            FFLocalizations.of(context).getText(
+              '2q9kvc58' /* Social & Support */,
+            ),
             style: FlutterFlowTheme.of(context).headlineSmall.override(
-                  fontFamily: 'Inter Tight',
+                  font: GoogleFonts.interTight(
+                    fontWeight: FontWeight.bold,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                  ),
                   color: FlutterFlowTheme.of(context).primaryText,
+                  fontSize: 18,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineSmall.fontStyle,
                 ),
           ),
           actions: [],
@@ -461,22 +755,36 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Mental Health Helpline',
+                                    FFLocalizations.of(context).getText(
+                                      'ycwi0w89' /* Mental Health Helpline */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          font: GoogleFonts.interTight(
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                   FFButtonWidget(
                                     onPressed: () {
                                       print('Button pressed ...');
                                     },
-                                    text: 'Call Now',
+                                    text: FFLocalizations.of(context).getText(
+                                      'uoxy7ep0' /* Call Now */,
+                                    ),
                                     icon: Icon(
                                       Icons.phone,
                                       color: FlutterFlowTheme.of(context).info,
@@ -492,10 +800,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                       textStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            font: GoogleFonts.inter(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                             color: FlutterFlowTheme.of(context)
                                                 .info,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                       borderRadius: BorderRadius.circular(20),
                                     ),
@@ -506,14 +831,31 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                                 child: Text(
-                                  'Immediate help is available 24/7. Tap to connect with a counselor.',
+                                  FFLocalizations.of(context).getText(
+                                    'bo6uqaz0' /* Immediate help is available 24... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -551,15 +893,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Peer Support Chat',
+                                    FFLocalizations.of(context).getText(
+                                      '9a0zid0e' /* Peer Support Chat */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          font: GoogleFonts.interTight(
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                   Icon(
@@ -573,14 +927,31 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
                                 child: Text(
-                                  'Connect with others who understand what you\'re going through.',
+                                  FFLocalizations.of(context).getText(
+                                    '3q9kqbh2' /* Connect with others who unders... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -635,35 +1006,74 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                                             .spaceBetween,
                                                     children: [
                                                       Text(
-                                                        'Sarah M.',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'tl0i54sx' /* Sarah M. */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Inter',
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w600,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                       ),
                                                       Text(
-                                                        '2m ago',
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'f4z82rn4' /* 2m ago */,
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .bodySmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Inter',
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .inter(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
                                                                 ),
                                                       ),
                                                     ],
@@ -674,14 +1084,39 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                                             .fromSTEB(
                                                                 0, 4, 0, 0),
                                                     child: Text(
-                                                      'I found a great meditation technique that helps with anxiety. Would love to share it with the group!',
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            letterSpacing: 0.0,
-                                                          ),
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'd9aa03sq' /* I found a great meditation tec... */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .inter(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                     ),
                                                   ),
                                                 ],
@@ -701,7 +1136,9 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                   onPressed: () {
                                     print('Button pressed ...');
                                   },
-                                  text: 'Join Chat',
+                                  text: FFLocalizations.of(context).getText(
+                                    '9qzvtu43' /* Join Chat */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -712,10 +1149,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           color:
                                               FlutterFlowTheme.of(context).info,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
@@ -755,15 +1209,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Support Groups',
+                                    FFLocalizations.of(context).getText(
+                                      'z46csr3v' /* Support Groups */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          font: GoogleFonts.interTight(
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                   Icon(
@@ -777,14 +1243,31 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
                                 child: Text(
-                                  'Find and join groups focused on specific health concerns.',
+                                  FFLocalizations.of(context).getText(
+                                    '67cq5skz' /* Find and join groups focused o... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -830,20 +1313,37 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 8, 0, 0),
                                               child: Text(
-                                                'Anxiety & Stress',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'x5s501ki' /* Anxiety & Stress */,
+                                                ),
                                                 textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.inter(
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .info,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -888,20 +1388,37 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0, 8, 0, 0),
                                               child: Text(
-                                                'Mindfulness',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '8c81j95q' /* Mindfulness */,
+                                                ),
                                                 textAlign: TextAlign.center,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      font: GoogleFonts.inter(
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .info,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                               ),
                                             ),
                                           ],
@@ -919,7 +1436,9 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                   onPressed: () {
                                     print('Button pressed ...');
                                   },
-                                  text: 'View All Groups',
+                                  text: FFLocalizations.of(context).getText(
+                                    '510hx0sx' /* View All Groups */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -930,10 +1449,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
@@ -973,15 +1509,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Anonymous Forum',
+                                    FFLocalizations.of(context).getText(
+                                      'xpip433i' /* Anonymous Forum */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          font: GoogleFonts.interTight(
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                   Icon(
@@ -995,14 +1543,31 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
                                 child: Text(
-                                  'Share your experiences anonymously and get support.',
+                                  FFLocalizations.of(context).getText(
+                                    '9vbm90cx' /* Share your experiences anonymo... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -1028,29 +1593,69 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              'Anonymous User',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '8ktaumyr' /* Anonymous User */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                             ),
                                             Text(
-                                              '1h ago',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'nl9e3as4' /* 1h ago */,
+                                              ),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
                                                       ),
                                             ),
                                           ],
@@ -1060,12 +1665,35 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0, 4, 0, 0),
                                           child: Text(
-                                            'Has anyone tried the new cognitive behavioral therapy exercises in the app? I\'m wondering if they\'re helpful.',
+                                            FFLocalizations.of(context).getText(
+                                              's3l2q9q4' /* Has anyone tried the new cogni... */,
+                                            ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  font: GoogleFonts.inter(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -1082,7 +1710,11 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                                 onPressed: () {
                                                   print('Button pressed ...');
                                                 },
-                                                text: 'Reply',
+                                                text:
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                  'kysvbywi' /* Reply */,
+                                                ),
                                                 options: FFButtonOptions(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(12, 4, 12, 4),
@@ -1094,12 +1726,33 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                                           .of(context)
                                                       .bodySmall
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        font: GoogleFonts.inter(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
                                                       ),
                                                   borderRadius:
                                                       BorderRadius.circular(16),
@@ -1121,7 +1774,9 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                   onPressed: () {
                                     print('Button pressed ...');
                                   },
-                                  text: 'Post Anonymously',
+                                  text: FFLocalizations.of(context).getText(
+                                    'c9wh9hxk' /* Post Anonymously */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -1132,10 +1787,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           color:
                                               FlutterFlowTheme.of(context).info,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
@@ -1175,15 +1847,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'AI Wellbeing Assistant',
+                                    FFLocalizations.of(context).getText(
+                                      '86t2bmg5' /* AI Wellbeing Assistant */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          font: GoogleFonts.interTight(
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                   Icon(
@@ -1197,14 +1881,31 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
                                 child: Text(
-                                  'Get personalized emotional support and recommendations.',
+                                  FFLocalizations.of(context).getText(
+                                    'n5rr5ltt' /* Get personalized emotional sup... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -1234,13 +1935,26 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 12),
                                         child: Text(
-                                          'How are you feeling today?',
+                                          FFLocalizations.of(context).getText(
+                                            'fjw7uzxh' /* How are you feeling today? */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -1262,15 +1976,39 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                               child: Padding(
                                                 padding: EdgeInsets.all(8),
                                                 child: Text(
-                                                  '😊',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'f6ctwfmz' /* 😊 */,
+                                                  ),
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineSmall
                                                       .override(
-                                                        fontFamily:
-                                                            'Inter Tight',
+                                                        font: GoogleFonts
+                                                            .interTight(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -1289,15 +2027,39 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                               child: Padding(
                                                 padding: EdgeInsets.all(8),
                                                 child: Text(
-                                                  '😐',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '1zgygeh9' /* 😐 */,
+                                                  ),
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineSmall
                                                       .override(
-                                                        fontFamily:
-                                                            'Inter Tight',
+                                                        font: GoogleFonts
+                                                            .interTight(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -1316,15 +2078,39 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                               child: Padding(
                                                 padding: EdgeInsets.all(8),
                                                 child: Text(
-                                                  '😔',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'xqbs1511' /* 😔 */,
+                                                  ),
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineSmall
                                                       .override(
-                                                        fontFamily:
-                                                            'Inter Tight',
+                                                        font: GoogleFonts
+                                                            .interTight(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -1343,15 +2129,39 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                               child: Padding(
                                                 padding: EdgeInsets.all(8),
                                                 child: Text(
-                                                  '😢',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'qc10gobg' /* 😢 */,
+                                                  ),
                                                   textAlign: TextAlign.center,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineSmall
                                                       .override(
-                                                        fontFamily:
-                                                            'Inter Tight',
+                                                        font: GoogleFonts
+                                                            .interTight(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmall
+                                                                  .fontStyle,
+                                                        ),
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -1371,7 +2181,9 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                   onPressed: () {
                                     print('Button pressed ...');
                                   },
-                                  text: 'Chat with AI Assistant',
+                                  text: FFLocalizations.of(context).getText(
+                                    '3m6d38ay' /* Chat with AI Assistant */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -1383,10 +2195,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           color:
                                               FlutterFlowTheme.of(context).info,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
@@ -1426,15 +2255,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Mental Health Resources',
+                                    FFLocalizations.of(context).getText(
+                                      'ok5u5x30' /* Mental Health Resources */,
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'Inter Tight',
+                                          font: GoogleFonts.interTight(
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                   Icon(
@@ -1448,14 +2289,31 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
                                 child: Text(
-                                  'Access articles, videos, and tools to support your mental health journey.',
+                                  FFLocalizations.of(context).getText(
+                                    'gud6j1gz' /* Access articles, videos, and t... */,
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -1470,21 +2328,59 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                     color: Colors.transparent,
                                     child: ListTile(
                                       title: Text(
-                                        'Understanding Anxiety',
+                                        FFLocalizations.of(context).getText(
+                                          '8e2pte7c' /* Understanding Anxiety */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                       subtitle: Text(
-                                        'Learn about symptoms and coping strategies',
+                                        FFLocalizations.of(context).getText(
+                                          'gg1hrzen' /* Learn about symptoms and copin... */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Inter',
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                       dense: false,
@@ -1494,21 +2390,59 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                     color: Colors.transparent,
                                     child: ListTile(
                                       title: Text(
-                                        'Meditation Basics',
+                                        FFLocalizations.of(context).getText(
+                                          '16epi565' /* Meditation Basics */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                       subtitle: Text(
-                                        '5-minute guided meditation for beginners',
+                                        FFLocalizations.of(context).getText(
+                                          'ymfvxlpq' /* 5-minute guided meditation for... */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Inter',
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                       dense: false,
@@ -1518,21 +2452,59 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                     color: Colors.transparent,
                                     child: ListTile(
                                       title: Text(
-                                        'Sleep Improvement Guide',
+                                        FFLocalizations.of(context).getText(
+                                          'i4ygq2xk' /* Sleep Improvement Guide */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                       subtitle: Text(
-                                        'Tips for better sleep quality',
+                                        FFLocalizations.of(context).getText(
+                                          '8llaqlj0' /* Tips for better sleep quality */,
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily: 'Inter',
+                                              font: GoogleFonts.inter(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontStyle,
                                             ),
                                       ),
                                       dense: false,
@@ -1548,7 +2520,9 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                   onPressed: () {
                                     print('Button pressed ...');
                                   },
-                                  text: 'Browse All Resources',
+                                  text: FFLocalizations.of(context).getText(
+                                    't6g5qv85' /* Browse All Resources */,
+                                  ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -1559,10 +2533,27 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          font: GoogleFonts.inter(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           color:
                                               FlutterFlowTheme.of(context).info,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                     borderRadius: BorderRadius.circular(20),
                                   ),
@@ -1604,18 +2595,30 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Need immediate help?',
+                        FFLocalizations.of(context).getText(
+                          'g4wbro3h' /* Need immediate help? */,
+                        ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
+                              font: GoogleFonts.inter(
+                                fontWeight: FontWeight.w600,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
                             ),
                       ),
                       FFButtonWidget(
                         onPressed: () {
                           print('Button pressed ...');
                         },
-                        text: 'Emergency Contact',
+                        text: FFLocalizations.of(context).getText(
+                          '84uspefv' /* Emergency Contact */,
+                        ),
                         icon: Icon(
                           Icons.local_phone,
                           color: FlutterFlowTheme.of(context).info,
@@ -1628,9 +2631,22 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
                           color: FlutterFlowTheme.of(context).error,
                           textStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).info,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                           borderRadius: BorderRadius.circular(18),
                         ),
@@ -1646,4 +2662,3 @@ class _SocialAndSupportWidgetState extends State<SocialAndSupportWidget> {
     );
   }
 }
-
