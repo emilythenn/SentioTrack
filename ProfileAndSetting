@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_language_selector.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -107,7 +108,7 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                         size: 30,
                       ),
                       onPressed: () async {
-                        context.pushNamed(DashboardWidget.routeName);
+                        context.pushNamed(DashboardCopyWidget.routeName);
                       },
                     ),
                   ),
@@ -188,11 +189,19 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                       textAlign: TextAlign.center,
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
-                                fontFamily: 'Plus Jakarta Sans',
+                                font: GoogleFonts.plusJakartaSans(
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontStyle,
+                                ),
                                 color: Colors.white,
                                 fontSize: 22,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .fontStyle,
                               ),
                     ),
                   ),
@@ -201,11 +210,19 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                     child: Text(
                       currentUserEmail,
                       style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Plus Jakarta Sans',
+                            font: GoogleFonts.plusJakartaSans(
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .fontStyle,
+                            ),
                             color: Color(0xCCFFFFFF),
                             fontSize: 16,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
                           ),
                     ),
                   ),
@@ -250,15 +267,27 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0, 0, 0, 12),
                                     child: Text(
-                                      'Settings',
+                                      FFLocalizations.of(context).getText(
+                                        'scsy6e4p' /* Settings */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily: 'Plus Jakarta Sans',
+                                            font: GoogleFonts.plusJakartaSans(
+                                              fontWeight: FontWeight.bold,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmall
+                                                      .fontStyle,
+                                            ),
                                             color: Color(0xFF101213),
                                             fontSize: 22,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineSmall
+                                                    .fontStyle,
                                           ),
                                     ),
                                   ),
@@ -286,33 +315,63 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 12, 0),
                                             child: Text(
-                                              'Profile Settings',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'pmcbt6uz' /* Profile Settings */,
+                                              ),
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily:
-                                                        'Plus Jakarta Sans',
+                                                    font: GoogleFonts
+                                                        .plusJakartaSans(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     color: Color(0xFF101213),
                                                     fontSize: 14,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
                                         ),
                                         Text(
-                                          'Edit Profile',
+                                          FFLocalizations.of(context).getText(
+                                            '3wsswy9y' /* Edit Profile */,
+                                          ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Plus Jakarta Sans',
+                                                font:
+                                                    GoogleFonts.plusJakartaSans(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 color: Color(0xFF4B39EF),
                                                 fontSize: 14,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ],
@@ -342,33 +401,63 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 12, 0),
                                             child: Text(
-                                              'Phone Number',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'nmmhcty6' /* Phone Number */,
+                                              ),
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily:
-                                                        'Plus Jakarta Sans',
+                                                    font: GoogleFonts
+                                                        .plusJakartaSans(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     color: Color(0xFF101213),
                                                     fontSize: 14,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
                                         ),
                                         Text(
-                                          'Add Number',
+                                          FFLocalizations.of(context).getText(
+                                            'nufy8m0r' /* Add Number */,
+                                          ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Plus Jakarta Sans',
+                                                font:
+                                                    GoogleFonts.plusJakartaSans(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 color: Color(0xFF4B39EF),
                                                 fontSize: 14,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ],
@@ -398,34 +487,85 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 12, 0),
                                             child: Text(
-                                              'Language',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'rdl7vzfb' /* Language */,
+                                              ),
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily:
-                                                        'Plus Jakarta Sans',
+                                                    font: GoogleFonts
+                                                        .plusJakartaSans(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     color: Color(0xFF101213),
                                                     fontSize: 14,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
                                         ),
-                                        Text(
-                                          'English (eng)',
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
+                                        FlutterFlowLanguageSelector(
+                                          width: 97.96,
+                                          height: 40,
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          borderColor: Colors.transparent,
+                                          dropdownIconColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryText,
+                                          borderRadius: 8,
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF4B39EF),
-                                                fontSize: 14,
+                                                font: GoogleFonts.inter(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
+                                          hideFlags: true,
+                                          flagSize: 24,
+                                          flagTextGap: 8,
+                                          currentLanguage:
+                                              FFLocalizations.of(context)
+                                                  .languageCode,
+                                          languages:
+                                              FFLocalizations.languages(),
+                                          onChanged: (lang) =>
+                                              setAppLanguage(context, lang),
                                         ),
                                       ],
                                     ),
@@ -454,33 +594,63 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 12, 0),
                                             child: Text(
-                                              'Biometric authentication',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'qcdepsab' /* Biometric authentication */,
+                                              ),
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily:
-                                                        'Plus Jakarta Sans',
+                                                    font: GoogleFonts
+                                                        .plusJakartaSans(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     color: Color(0xFF101213),
                                                     fontSize: 14,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
                                         ),
                                         Text(
-                                          'Fingerprint',
+                                          FFLocalizations.of(context).getText(
+                                            '0glmyrgp' /* Fingerprint */,
+                                          ),
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Plus Jakarta Sans',
+                                                font:
+                                                    GoogleFonts.plusJakartaSans(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 color: Color(0xFF4B39EF),
                                                 fontSize: 14,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ],
@@ -510,18 +680,34 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 12, 0),
                                             child: Text(
-                                              'Change Password',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '8fmoarr8' /* Change Password */,
+                                              ),
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily:
-                                                        'Plus Jakarta Sans',
+                                                    font: GoogleFonts
+                                                        .plusJakartaSans(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     color: Color(0xFF101213),
                                                     fontSize: 14,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
@@ -552,13 +738,26 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                                           ),
                                         ),
                                         Text(
-                                          'Privacy & data-sharing',
+                                          FFLocalizations.of(context).getText(
+                                            '4dchfk7j' /* Privacy & data-sharing */,
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                font: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ],
@@ -588,18 +787,34 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0, 0, 12, 0),
                                             child: Text(
-                                              'Log out of account',
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'cyzncum8' /* Log out of account */,
+                                              ),
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily:
-                                                        'Plus Jakarta Sans',
+                                                    font: GoogleFonts
+                                                        .plusJakartaSans(
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     color: Color(0xFF101213),
                                                     fontSize: 14,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
@@ -625,17 +840,31 @@ class _ProfileandsettingsWidgetState extends State<ProfileandsettingsWidget> {
                                             );
                                           },
                                           child: Text(
-                                            'Log Out?',
+                                            FFLocalizations.of(context).getText(
+                                              'ahr8ayul' /* Log Out? */,
+                                            ),
                                             textAlign: TextAlign.center,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      'Plus Jakarta Sans',
+                                                  font: GoogleFonts
+                                                      .plusJakartaSans(
+                                                    fontWeight: FontWeight.w500,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   color: Color(0xFF4B39EF),
                                                   fontSize: 14,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
